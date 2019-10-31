@@ -1,6 +1,7 @@
 package adapter
 
 import (
+	"fmt"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"os"
 	"path/filepath"
@@ -16,6 +17,7 @@ type CPPCallApp struct {
 func (j *CPPCallApp) Analysis(codeDir string) {
 	files := (*CPPCallApp)(nil).getFiles(codeDir)
 	for _, file := range files {
+		fmt.Println(file)
 		parser := (*CPPCallApp)(nil).processFile(file)
 		context := parser.Translationunit()
 		listener := NewCPPCallListener()
@@ -27,7 +29,7 @@ func (j *CPPCallApp) Analysis(codeDir string) {
 func (j *CPPCallApp) getFiles(codeDir string) []string {
 	files := make([]string, 0)
 	_ = filepath.Walk(codeDir, func(path string, fi os.FileInfo, err error) error {
-		if strings.HasSuffix(path, ".cpp") && !strings.Contains(path, "Test.cpp") {
+		if strings.HasSuffix(path, ".cpp") || strings.Contains(path, ".h") {
 			files = append(files, path)
 		}
 		return nil
