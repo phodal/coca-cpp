@@ -46,14 +46,10 @@ func (s *CPPCallListener) EnterUnaryexpression(ctx *UnaryexpressionContext) {
 }
 
 func (s *CPPCallListener) EnterPostfixexpression(ctx *PostfixexpressionContext) {
-	if ctx.GetText() == "swap(a,b)" {
-		fmt.Println(".......................")
-		fmt.Println(ctx.GetChildren())
-		fmt.Println(ctx.Postfixexpression())
-		fmt.Println(ctx.Simpletypespecifier())
-		fmt.Println(ctx.Typenamespecifier())
-		fmt.Println(ctx.Expressionlist().GetText())
-		fmt.Println("////////////////////////")
+	postfixExpression := ctx.Postfixexpression()
+	expressionList := ctx.Expressionlist()
+
+	if postfixExpression != nil && expressionList != nil {
+		fmt.Println("postfixExpression: -> " + postfixExpression.GetText())
 	}
 }
-
