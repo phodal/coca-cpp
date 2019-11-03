@@ -29,7 +29,7 @@ func (j *CPPCallApp) Analysis(codeDir string) {
 func (j *CPPCallApp) getFiles(codeDir string) []string {
 	files := make([]string, 0)
 	_ = filepath.Walk(codeDir, func(path string, fi os.FileInfo, err error) error {
-		if strings.HasSuffix(path, ".cpp") || strings.Contains(path, ".h") {
+		if !strings.Contains(path, "cmake-build-debug") && (strings.HasSuffix(path, ".cpp") || strings.Contains(path, ".h")) {
 			files = append(files, path)
 		}
 		return nil

@@ -6,5 +6,5 @@ import (
 
 func main()  {
 	callApp := new(CPPCallApp)
-	callApp.Analysis("examples/inheritance-tree-code/")
+	callApp.Analysis("examples/cpp-basic/function-call/")
 }
