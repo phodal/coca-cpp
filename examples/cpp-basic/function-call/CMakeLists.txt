@@ -8,4 +8,4 @@ project(hello)
 aux_source_directory(. SRC_LIST)
 
 # 指定生成目标
-add_executable(hello ${SRC_LIST})
+add_executable(hello ${SRC_LIST} line.h)

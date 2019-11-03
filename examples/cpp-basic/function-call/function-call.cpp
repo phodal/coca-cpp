@@ -1,4 +1,5 @@
 #include <iostream>
+#include "line.h"
 
 using namespace std;
 
@@ -35,6 +36,13 @@ int main() {
 
     Position position;
     position.setX(0);
+
+    Line line;
+    line.setLength(2);
+    double length = line.getLength();
+
+    cout << "length: " << length << endl;
+
     return 0;
 }
 
