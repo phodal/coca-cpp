@@ -3,3 +3,4 @@ language/cplus/*.go
 language/cplus/*.tokens
 language/cplus/*.interp
 main
+**/cmake-build-debug/
